@@ -25,12 +25,12 @@ const PropertiesPage = () => {
   const [data, setData] = useState([])
 
   const user = useSelector(state =>  state.currentUser.email)
-  console.log(user)
+  // console.log(user)
 
   useEffect(() => {
     const getAllPropertyData = async() => {
       const res = await userRequest.post("/property/getPropertiesByUserName", {email: user})
-      console.log(res.data)
+      // console.log(res.data)
       setData(res.data)
     }
     getAllPropertyData()

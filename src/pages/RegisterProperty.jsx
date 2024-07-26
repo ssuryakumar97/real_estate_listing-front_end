@@ -39,7 +39,7 @@ const Button = styled.button`
 
 const RegisterProperty = () => {
   const user = useSelector((state) => state.currentUser.email);
-  console.log(user);
+  // console.log(user);
 
   const initialState = {
     email: user,
@@ -68,7 +68,7 @@ const RegisterProperty = () => {
         "/property/registerProperty",
         data
       );
-      console.log(registerProperty.data);
+      // console.log(registerProperty.data);
       alert("Data regisetered successfully");
       setData(initialState);
     } catch (error) {
@@ -76,7 +76,7 @@ const RegisterProperty = () => {
     }
   };
 
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <Navbar />

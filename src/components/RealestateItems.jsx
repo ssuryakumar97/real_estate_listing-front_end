@@ -53,14 +53,14 @@ const RealestateItems = ({data, update, deleteData}) => {
   const navigate = useNavigate()
 
   const handleClick = (val) => {
-    console.log(val._id)
+    // console.log(val._id)
     navigate(`/updateProperty/${val._id}`)
   }
 
   const handleDelete = (val) => {
     const deleteData = async() => {
       const res = await userRequest.delete(`/property/deleteProperty/${val._id}`)
-      console.log(res.data)
+      // console.log(res.data)
       window.location.reload()
     }
     deleteData()

@@ -42,7 +42,7 @@ const Button = styled.button`
 const UpdateProperty = () => {
 
     const user = useSelector((state) => state.currentUser.email);
-  console.log(user);
+  // console.log(user);
 
     const initialState = {
         email: user,
@@ -60,7 +60,7 @@ const UpdateProperty = () => {
     useEffect(() => {
         const getPropertybyId = async() => {
             const res = await userRequest.get(`/property/getPropertyById/${id}`)
-            console.log(res.data)
+            // console.log(res.data)
             setData(res.data)
         }
         getPropertybyId()
@@ -86,7 +86,7 @@ const UpdateProperty = () => {
         "/property/updateProperty",
         data
       );
-      console.log(registerProperty.data);
+      // console.log(registerProperty.data);
       alert("Data regisetered successfully");
     //   setData(initialState);
     } catch (error) {
@@ -94,7 +94,7 @@ const UpdateProperty = () => {
     }
   };
 
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <Navbar />

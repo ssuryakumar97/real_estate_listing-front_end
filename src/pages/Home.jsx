@@ -68,58 +68,6 @@ const Home = () => {
     },[])
 
     // console.log(propertyData)
-    
-    
-
-
-    const [filteredSearch, setFilteredSearch] = useState(propertyData)
-    const [filteredProperty, setFilteredProperty] = useState(propertyData)
-    const [filteredAll, setFilteredAll] = useState(propertyData)
-
-    // useEffect(() => {
-    //     console.log(searchFilter.length)
-    //     if(searchFilter.length === 0) {
-    //         setFilteredSearch(propertyData)
-    //     } else {
-    //         setFilteredSearch(propertyData.filter((item) => item.location.includes(searchFilter.toLowerCase())))
-    //     }
-    // }, [searchFilter,propertyTypeFilter,priceFilter])
-
-    // console.log(filteredSearch)
-
-    // useEffect(() => {
-    //     if(propertyTypeFilter === "all") {
-    //         // setFilteredProperty([...filteredSearch].filter((item) => item.location.includes(searchFilter.toLowerCase())))
-    //         setFilteredProperty(filteredSearch)
-    //     } else {
-    //         setFilteredProperty([...filteredSearch].filter((item) => item.propertyType.includes(propertyTypeFilter)))
-    //     }
-    // }, [searchFilter,propertyTypeFilter,priceFilter])
-
-    // console.log(filteredProperty)
-
-    // useEffect(() => {
-    //     // if(priceFilter === "all" && propertyTypeFilter !== "all"){
-    //     //     setFilteredAll([...filterdProperty].filter((item) => item.propertyType.includes(propertyTypeFilter)))
-    //     // }
-    //     // if(priceFilter === "all" && propertyTypeFilter === "all"){
-    //     if(priceFilter === "all"){
-    //         console.log("hhelo")
-    //     // setFilteredAll([...filterdProperty].filter((item) => item.location.includes(searchFilter.toLowerCase())))
-    //         setFilteredAll([...filteredProperty])
-    //     } else if(priceFilter === "10-20"){
-    //         setFilteredAll([...filteredProperty].filter((item) => item.price>=1000000 && item.price<=2000000))
-    //     } else if(priceFilter === "20-50"){
-    //         setFilteredAll([...filteredProperty].filter((item) => item.price>2000000 && item.price<=5000000))
-    //     }else if(priceFilter === "50-100"){
-    //         setFilteredAll([...filteredProperty].filter((item) => item.price>5000000 && item.price<=10000000))
-    //     }else if(priceFilter === "100-200"){
-    //         setFilteredAll([...filteredProperty].filter((item) => item.price>10000000 && item.price<=20000000))
-    //     }else if(priceFilter === "200AndAbove"){
-    //         setFilteredAll([...filteredProperty].filter((item) => item.price>20000000 && item.price<=100000000))
-    //     }
-
-    // },[searchFilter,propertyTypeFilter,priceFilter])
 
     
 
@@ -128,14 +76,13 @@ const Home = () => {
     const handleFilters = (e) => {
         if(e.target.name === "propertyType") setPropertyTypeFilter(e.target.value)   
         if(e.target.name === "price") setPriceFilter(e.target.value)
-               
     }
 
     const handleClick = () => {
         const SearchFilter = propertyData.filter((item) => item.location.includes(searchFilter.toLowerCase()))
-        console.log(SearchFilter)
+        // console.log(SearchFilter)
         const filteredPropertyNew = SearchFilter.filter((item) => item.propertyType.includes(propertyTypeFilter))
-        console.log(filteredPropertyNew)
+        // console.log(filteredPropertyNew)
         let filteredAllNew = filteredPropertyNew
         
         if(priceFilter === "10-20"){
@@ -149,7 +96,7 @@ const Home = () => {
         }else if(priceFilter === "200AndAbove"){
             filteredAllNew = [...filteredPropertyNew].filter((item) => item.price>20000000 && item.price<=100000000)
         }
-        console.log(filteredAllNew)
+        // console.log(filteredAllNew)
         setData([...filteredAllNew])
     }
 
@@ -161,13 +108,6 @@ const Home = () => {
         <Filter>
             
             <Input type='text' placeholder='location' onChange={(e) => setSearchFilter(e.target.value)} value={searchFilter}/>
-            {/* <Select name='color' onChange={handleFilters}>
-                <Option disabled>Color</Option>
-                <Option>Red</Option>
-                <Option>Green</Option>
-                <Option>Blue</Option>
-                <Option>Yellow</Option>
-            </Select> */}
             <FilterText>Property Type:</FilterText>
             <Select name='propertyType' onChange={handleFilters}>
                 <Option value="">All</Option>
